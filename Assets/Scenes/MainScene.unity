@@ -2539,8 +2539,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76ca2abcc4ad5c116813e394bc4a69b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletAudioSource: {fileID: 0}
-  jumpAudioSource: {fileID: 0}
+  bulletAudioSource: {fileID: 1910476816}
+  jumpAudioSource: {fileID: 1910476815}
   bulletPrefab: {fileID: 4310925593811181499, guid: 9d6d7396d60646c688361d63cbc0f4eb, type: 3}
   jumpEnergyBar: {fileID: 531617282}
   maxJumpEnergy: 100
