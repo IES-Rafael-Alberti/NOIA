@@ -7,19 +7,21 @@ public class PlayerManager : MonoBehaviour
     
     private Rigidbody2D myRigidbody2D;
     private Camera myCamera;
-    
+
+    [SerializeField] private AudioSource bulletAudioSource;
+    [SerializeField] private AudioSource jumpAudioSource;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject jumpEnergyBar;
 
     [SerializeField] private float maxJumpEnergy = 100.0f;
     [SerializeField] private float jumpEnergy;
-    [SerializeField] private float jumpForce = 0.1f;
-    [SerializeField] private float jumpEnergyConsumption = 10.0f;
-    [SerializeField] private float jumpEnergyRecovery = 1.0f;
-    [SerializeField] private float speed = 2.0f;
+    [SerializeField] private float jumpForce = 4.0f;
+    [SerializeField] private float jumpEnergyConsumption = 4.5f;
+    [SerializeField] private float jumpEnergyRecovery = 2.5f;
+    [SerializeField] private float speed = 4.0f;
 
     [SerializeField] private float bulletSpeed = 2.0f;
-    [SerializeField] private float bulletOrigin = 0.25f;
+    [SerializeField] private float bulletOrigin = 0.5f;
     [SerializeField] private GameObject ramas;
     
     // Start is called before the first frame update
@@ -31,13 +33,18 @@ public class PlayerManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (Input.GetKey(KeyCode.Space) || Input.GetAxis("Vertical") > 0)
         {
             if (jumpEnergy > 0)
             {
-                myRigidbody2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Force);
+                if (!jumpAudioSource.isPlaying)
+                {
+                    jumpAudioSource.Play();
+                }
+                else
+                    myRigidbody2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Force);
                 jumpEnergy -= jumpEnergyConsumption;
             }
         }
@@ -52,6 +59,7 @@ public class PlayerManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            bulletAudioSource.Play();
             Vector3 destiny = (myCamera.ScreenToWorldPoint(Input.mousePosition) - gameObject.transform.position).normalized;
             destiny.z = 0;
             Vector3 origin = destiny * bulletOrigin;
