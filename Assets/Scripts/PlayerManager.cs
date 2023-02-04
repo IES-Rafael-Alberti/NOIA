@@ -7,6 +7,8 @@ public class PlayerManager : MonoBehaviour
     
     private Rigidbody2D myRigidbody2D;
     private Camera myCamera;
+    private Animator myAnimator;
+    private SpriteRenderer mySpriteRenderer;
 
     [SerializeField] private AudioSource bulletAudioSource;
     [SerializeField] private AudioSource jumpAudioSource;
@@ -22,6 +24,7 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] private float bulletSpeed = 2.0f;
     [SerializeField] private float bulletOrigin = 0.5f;
+    [SerializeField] private float margin = 0.1f;
     [SerializeField] private GameObject ramas;
     
     // Start is called before the first frame update
@@ -29,6 +32,8 @@ public class PlayerManager : MonoBehaviour
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myCamera = Camera.main;
+        myAnimator = GetComponent<Animator>();
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
         jumpEnergy = maxJumpEnergy;
     }
 
@@ -71,5 +76,38 @@ public class PlayerManager : MonoBehaviour
         Vector3 jumpScale = jumpEnergyBar.transform.localScale;
         jumpScale.x = jumpEnergy / maxJumpEnergy;
         jumpEnergyBar.transform.localScale = jumpScale;
+        
+        // Animation control
+        if (myRigidbody2D.velocity.y < -margin)
+        {
+            myAnimator.SetBool("isFalling", true);
+            myAnimator.SetBool("isJumping", false);
+            myAnimator.SetBool("isRunning", false);
+        }
+        else if (myRigidbody2D.velocity.y > margin)
+        {
+            myAnimator.SetBool("isJumping", true);
+            myAnimator.SetBool("isFalling", false);
+            myAnimator.SetBool("isRunning", false);
+        }
+        else
+        {
+            myAnimator.SetBool("isFalling", false);
+            myAnimator.SetBool("isJumping", false);
+            myAnimator.SetBool("isRunning", false);
+            if (myRigidbody2D.velocity.x > 0)
+            {
+                myAnimator.SetBool("isRunning", true);
+                if(mySpriteRenderer != null)
+                    mySpriteRenderer.flipX = false;
+            }
+            else if (myRigidbody2D.velocity.x < 0)
+            {
+                myAnimator.SetBool("isRunning", true);
+                if(mySpriteRenderer != null)
+                    mySpriteRenderer.flipX = true;
+            }
+        }
+        
     }
 }

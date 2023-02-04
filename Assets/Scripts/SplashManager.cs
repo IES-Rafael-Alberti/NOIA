@@ -20,6 +20,6 @@ public class SplashManager : MonoBehaviour
     void ChangeScene()
     {
         SceneManager.LoadScene(1);
-        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(1));
+        //SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(1));
     }
 }
