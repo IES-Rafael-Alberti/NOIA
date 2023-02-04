@@ -15,13 +15,13 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] private float maxJumpEnergy = 100.0f;
     [SerializeField] private float jumpEnergy;
-    [SerializeField] private float jumpForce = 0.1f;
-    [SerializeField] private float jumpEnergyConsumption = 10.0f;
-    [SerializeField] private float jumpEnergyRecovery = 1.0f;
-    [SerializeField] private float speed = 2.0f;
+    [SerializeField] private float jumpForce = 4.0f;
+    [SerializeField] private float jumpEnergyConsumption = 4.5f;
+    [SerializeField] private float jumpEnergyRecovery = 2.5f;
+    [SerializeField] private float speed = 4.0f;
 
     [SerializeField] private float bulletSpeed = 2.0f;
-    [SerializeField] private float bulletOrigin = 0.25f;
+    [SerializeField] private float bulletOrigin = 0.5f;
     [SerializeField] private GameObject ramas;
     
     // Start is called before the first frame update
@@ -33,7 +33,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (Input.GetKey(KeyCode.Space) || Input.GetAxis("Vertical") > 0)
         {

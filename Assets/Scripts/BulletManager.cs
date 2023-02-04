@@ -13,7 +13,7 @@ public class BulletManager : MonoBehaviour
 
     public GameObject tiles;
     private Rigidbody2D myRigidbody2D;
-    private float reduction = 0.075f;
+    private float reduction = 0.1f;
     private Vector2 velocity;
 
     // Start is called before the first frame update
