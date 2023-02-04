@@ -13,7 +13,7 @@ public class BulletManager : MonoBehaviour
 
     public GameObject tiles;
     private Rigidbody2D myRigidbody2D;
-    private float reduction = 0.05f;
+    private float reduction = 0.075f;
     private Vector2 velocity;
 
     // Start is called before the first frame update
@@ -34,12 +34,16 @@ public class BulletManager : MonoBehaviour
         if (col.gameObject.CompareTag("ramas"))
         {
             Tilemap tilemap = tiles.GetComponent<Tilemap>();
-            Debug.Log(col.contacts.First());
-            Debug.Log(velocity);
+            /*
             Vector3 worldPoint = col.contacts.First().point + velocity.normalized*reduction;
             worldPoint.z = 0;
+            */
+            Vector3 worldPoint = col.contacts.First().point;
+            worldPoint.z = 0;
+            Vector3 normal = worldPoint - transform.position;
+            worldPoint += normal.normalized*reduction;
+            
             Vector3Int tile = tilemap.WorldToCell(worldPoint);
-            Debug.Log(tile);
             tilemap.SetTile(tile, null);
             Instantiate(tileDestroy, worldPoint, Quaternion.identity);
         }

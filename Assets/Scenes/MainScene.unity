@@ -12106,10 +12106,10 @@ MonoBehaviour:
   jumpEnergyBar: {fileID: 531617282}
   maxJumpEnergy: 100
   jumpEnergy: 100
-  jumpForce: 4
-  jumpEnergyConsumption: 5
-  jumpEnergyRecovery: 2
-  speed: 2
+  jumpForce: 2
+  jumpEnergyConsumption: 3.25
+  jumpEnergyRecovery: 2.5
+  speed: 4
   bulletSpeed: 1
   bulletOrigin: 0.25
   ramas: {fileID: 383312388}
