@@ -101,7 +101,7 @@ public class PlayerManager : MonoBehaviour
             jumpScale.x = jumpEnergy / maxJumpEnergy;
             jumpEnergyBar.transform.localScale = jumpScale;
 
-            // Animation control
+            // Animation control (OMG, it's late and I'm stoned)
             if (myRigidbody2D.velocity.y < -margin)
             {
                 myAnimator.SetBool("isFalling", true);
