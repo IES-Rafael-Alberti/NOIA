@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
+    
     public float timeRemaining = 10;
     public bool timerIsRunning = false;
     public TMP_Text timeText;
@@ -29,11 +31,9 @@ public class Timer : MonoBehaviour
                 Debug.Log("Time has run out!");
                 // Stop Player and Death Animation
                 // TODO
-
-                //Load GameOver Scene
-                SceneManager.LoadScene(2);
-                SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(2));
-
+                PlayerManager playerManager = player.GetComponent<PlayerManager>();
+                playerManager.Morir();
+                
                 timeRemaining = 0;
                 timerIsRunning = false;
             }
