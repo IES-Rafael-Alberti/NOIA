@@ -136630,7 +136630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7711f82a859941e180475c148c46f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1910476809}
   timeRemaining: 180
   timerIsRunning: 0
   timeText: {fileID: 114240782}
