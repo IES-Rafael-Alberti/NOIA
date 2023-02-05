@@ -15037,7 +15037,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1332665394
 RectTransform:
@@ -15277,8 +15277,9 @@ GameObject:
   - component: {fileID: 1910476812}
   - component: {fileID: 1910476816}
   - component: {fileID: 1910476815}
+  - component: {fileID: 1910476817}
   m_Layer: 0
-  m_Name: wizard_0
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15376,6 +15377,7 @@ MonoBehaviour:
   speed: 4
   bulletSpeed: 2
   bulletOrigin: 0.7
+  margin: 0.1
   ramas: {fileID: 383312388}
 --- !u!50 &1910476813
 Rigidbody2D:
@@ -15606,3 +15608,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1910476817
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910476809}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a5d2d765b60d2302b85111a71d875134, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
