@@ -46,7 +46,11 @@ public class BulletManager : MonoBehaviour
             Vector3Int tile = tilemap.WorldToCell(worldPoint);
             tilemap.SetTile(tile, null);
             Instantiate(tileDestroy, worldPoint, Quaternion.identity);
+        } else if (col.gameObject.CompareTag("robot"))
+        {
+            Destroy(col.gameObject);
         }
+        
         Instantiate(bulletDestroy, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
