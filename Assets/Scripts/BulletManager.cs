@@ -20,7 +20,7 @@ public class BulletManager : MonoBehaviour
     void Start()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
-        Debug.Log(myRigidbody2D.velocity);
+        Invoke(nameof(DestroyThis), 3.0f);
     }
 
     // Update is called once per frame
@@ -48,6 +48,11 @@ public class BulletManager : MonoBehaviour
             Instantiate(tileDestroy, worldPoint, Quaternion.identity);
         }
         Instantiate(bulletDestroy, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
+
+    void DestroyThis()
+    {
         Destroy(gameObject);
     }
 }
