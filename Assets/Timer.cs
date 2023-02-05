@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -26,6 +27,13 @@ public class Timer : MonoBehaviour
             else
             {
                 Debug.Log("Time has run out!");
+                // Stop Player and Death Animation
+                // TODO
+
+                //Load GameOver Scene
+                SceneManager.LoadScene(2);
+                SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(2));
+
                 timeRemaining = 0;
                 timerIsRunning = false;
             }
