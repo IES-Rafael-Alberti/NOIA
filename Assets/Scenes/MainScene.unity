@@ -129489,7 +129489,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 36, y: -40}
-  m_SizeDelta: {x: 180, y: 25}
+  m_SizeDelta: {x: 250, y: 25}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &531617284
 MonoBehaviour:
@@ -130220,7 +130220,7 @@ MonoBehaviour:
   maxJumpEnergy: 100
   jumpEnergy: 0
   jumpForce: 2
-  jumpEnergyConsumption: 3.5
+  jumpEnergyConsumption: 3.25
   jumpEnergyRecovery: 2
   speed: 4
   bulletSpeed: 2
